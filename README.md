@@ -22,7 +22,7 @@ npm i canvas-to-video
 
 The below code is a super simple example of how you can record whatever is being rendered to your canvas for the `duration` period.
 
-```
+```js
 import record from 'canvas-to-video';
 
 const canvas = document.getElementById('canvas');
@@ -33,9 +33,9 @@ const options = {
   timeslice: 100,
   // the length of video you would like to record
   duration: 3000,
-  mimeType: "video/webm",
+  mimeType: 'video/webm',
   audioBitsPerSecond: 0,
-  videoBitsPerSecond: 25000000
+  videoBitsPerSecond: 25000000,
 };
 
 button.addEventListener('mousedown', async () => {
