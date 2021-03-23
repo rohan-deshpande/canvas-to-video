@@ -1,0 +1,32 @@
+# Files
+
+DS_Store
+.DS_Store
+.git
+.svn
+.babelrc
+.editorconfig
+.esdoc.json
+.eslintrc
+.gitignore
+.prettierc
+.travis.yml
+nyc.config.js
+webpack.config.js
+webpack.config.sandbox.js
+npm-debug.log
+build/stats.json
+
+# Directories
+
+docs/
+git/
+node_modules/
+.nyc_output/
+.github/
+coverage/
+scripts/
+src/
+test/
+website/
+sandbox/

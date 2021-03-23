@@ -1,0 +1,80 @@
+{
+  "name": "canvas-to-video",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./build/cjs/index.js",
+  "module": "./build/esm/index.js",
+  "bundlesize": [
+    {
+      "path": "./build/canvas-to-video.js",
+      "maxSize": "10 kB",
+      "compression": "none"
+    }
+  ],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:umd && npm run build:cjs && npm run build:esm",
+    "build:clean": "rm -rf ./build",
+    "build:umd": "webpack",
+    "build:cjs": "babel src --out-dir build/cjs --extensions \".js\" --source-maps inline --presets @babel/env",
+    "build:esm": "babel src --out-dir build/esm --extensions \".js\" --source-maps inline",
+    "test": "NODE_ENV=test mocha --require @babel/register --colors './test/**/*.spec.js'",
+    "test:only": "NODE_ENV=test mocha --require @babel/register --colors",
+    "test:watch": "NODE_ENV=test mocha --require @babel/register --colors -w './test/**/*.spec.js'",
+    "test:watch-only": "NODE_ENV=test mocha --require @babel/register --colors -w ",
+    "lint": "eslint src test && npx madge --circular src",
+    "lint:fix": "eslint --fix",
+    "coverage": "NODE_ENV=test npm run coverage:generate && npm run coverage:report",
+    "coverage:view": "open ./coverage/lcov-report/index.html",
+    "coverage:generate": "nyc mocha './test/**/*.spec.js' -- --require @babel/register",
+    "coverage:report": "nyc report --reporter=lcov",
+    "ci:src": "npm run lint && npm run test && npm run coverage",
+    "ci:bundlesize": "./scripts/check-bundlesize",
+    "analyze": "webpack-bundle-analyzer build/stats.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohan-deshpande/canvas-to-video.git"
+  },
+  "keywords": [
+    "video",
+    "canvas",
+    "html5",
+    "threejs"
+  ],
+  "authors": [
+    "rohan-deshpande"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rohan-deshpande/canvas-to-video/issues"
+  },
+  "homepage": "https://github.com/rohan-deshpande/canvas-to-video/issues#readme",
+  "dependencies": {},
+  "peerDependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.10.1",
+    "@babel/core": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+    "@babel/plugin-transform-runtime": "^7.10.1",
+    "@babel/preset-env": "^7.10.1",
+    "@babel/register": "^7.10.1",
+    "@babel/runtime": "^7.10.1",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "babel-eslint": "^7.2.1",
+    "babel-loader": "^8.1.0",
+    "bundlesize": "^0.18.0",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "domino": "^2.1.1",
+    "eslint": "^6.0.1",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-import": "^2.18.0",
+    "mocha": "^7.1.1",
+    "nyc": "^15.0.0",
+    "prettier": "^1.16.4",
+    "sinon": "^7.1.1",
+    "webpack": "^4.42.1",
+    "webpack-bundle-analyzer": "^3.6.1",
+    "webpack-cli": "^3.3.5"
+  }
+}
