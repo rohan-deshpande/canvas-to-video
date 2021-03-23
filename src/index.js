@@ -12,15 +12,15 @@ export default (
     try {
       const stream = canvas.captureStream();
       const blobs = [];
-      const recorder = new MediaRecorder(steam, {
+      const recorder = new MediaRecorder(stream, {
         mimeType,
         audioBitsPerSecond,
         videoBitsPerSecond,
       });
 
       recorder.ondataavailable = event => {
-        if (e.data && e.data.size > 0) {
-          blobs.push(e.data);
+        if (event.data && event.data.size > 0) {
+          blobs.push(event.data);
 
           return;
         }
