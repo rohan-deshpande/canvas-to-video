@@ -18,8 +18,8 @@ jobs:
       - name: Install packages
         run: npm install
 
- #     - name: Test source
- #       run: npm run test
+      # - name: Test source
+      #  run: npm run test
 
       - name: Build source
         run: npm run build
