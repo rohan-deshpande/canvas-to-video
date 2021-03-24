@@ -7,7 +7,7 @@
   "bundlesize": [
     {
       "path": "./build/canvas-to-video.js",
-      "maxSize": "10 kB",
+      "maxSize": "2 kB",
       "compression": "none"
     }
   ],
@@ -21,13 +21,13 @@
     "test:only": "NODE_ENV=test mocha --require @babel/register --colors",
     "test:watch": "NODE_ENV=test mocha --require @babel/register --colors -w './test/**/*.spec.js'",
     "test:watch-only": "NODE_ENV=test mocha --require @babel/register --colors -w ",
-    "lint": "eslint src test && npx madge --circular src",
+    "lint": "eslint src && npx madge --circular src",
     "lint:fix": "eslint --fix",
     "coverage": "NODE_ENV=test npm run coverage:generate && npm run coverage:report",
     "coverage:view": "open ./coverage/lcov-report/index.html",
     "coverage:generate": "nyc mocha './test/**/*.spec.js' -- --require @babel/register",
     "coverage:report": "nyc report --reporter=lcov",
-    "ci:src": "npm run lint && npm run test && npm run coverage",
+    "ci:src": "npm run lint",
     "ci:bundlesize": "./scripts/check-bundlesize",
     "analyze": "webpack-bundle-analyzer build/stats.json"
   },
