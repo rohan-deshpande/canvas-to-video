@@ -21,8 +21,6 @@ export default (
       recorder.ondataavailable = event => {
         if (event.data && event.data.size > 0) {
           blobs.push(event.data);
-
-          return;
         }
 
         if (blobs.length === duration / timeslice) {
