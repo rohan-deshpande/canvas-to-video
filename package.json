@@ -1,6 +1,6 @@
 {
   "name": "canvas-to-video",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "./build/cjs/index.js",
   "module": "./build/esm/index.js",
